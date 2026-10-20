@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeSage AI | Python Code Reviewer</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="brand"><span class="brand-icon">C</span> CodeSage AI</div>
+        <span class="tag">PYTHON CODE REVIEWER</span>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <p class="eyebrow">YOUR PERSONAL CODE ASSISTANT</p>
+            <h1>Write better code.<br><span>One review at a time.</span></h1>
+            <p class="subtitle">
+                Find syntax errors, detect code-quality issues, and apply
+                automatic fixes to your Python code.
+            </p>
+        </section>
+
+        <section class="workspace">
+            <div class="panel editor-panel">
+                <div class="panel-heading">
+                    <div>
+                        <span class="status-dot"></span>
+                        <strong>Python Editor</strong>
+                    </div>
+                    <span class="file-label">main.py</span>
+                </div>
+
+                <textarea id="codeInput" spellcheck="false"
+                    aria-label="Python source code"
+                    placeholder="Paste your Python code here...">import os
+
+def greet(name):
+    unused_variable = 10
+    print("Hello", name)
+
+greet("Peachlet")</textarea>
+
+                <div class="actions">
+                    <button id="analyzeBtn" class="primary">Analyze Code</button>
+                    <button id="fixBtn" class="secondary">Auto-fix</button>
+                </div>
+                <p id="status" class="status" role="status">
+                    Ready when you are.
+                </p>
+            </div>
+
+            <div class="panel results-panel">
+                <div class="panel-heading">
+                    <strong>Review Results</strong>
+                    <span class="file-label">LIVE REPORT</span>
+                </div>
+
+                <div id="summary" class="summary">
+                    <div class="empty-icon">⌘</div>
+                    <h2>Your results will appear here</h2>
+                    <p>Click Analyze Code to start your review.</p>
+                </div>
+
+                <div id="issues"></div>
+
+                
+                <div id="fixedSection" class="fixed-section" hidden>
+                    <h3>What changed?</h3>
+                    <p class="diff-description">
+                        Original code on the left. Corrected code on the right.
+                    </p>
+
+                    <div class="diff-legend">
+                        <span class="legend-removed">− Removed or changed</span>
+                        <span class="legend-added">+ Added or changed</span>
+                    </div>
+
+                    <div class="diff-headings">
+                        <span>ORIGINAL</span>
+                        <span>CORRECTED</span>
+                    </div>
+
+                    <div id="diffContainer" class="diff-container"></div>
+
+                    <button id="useFixedBtn" class="secondary">
+                        Use corrected code in editor
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <footer>CodeSage AI · Built to help you write cleaner Python</footer>
+    </main>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
